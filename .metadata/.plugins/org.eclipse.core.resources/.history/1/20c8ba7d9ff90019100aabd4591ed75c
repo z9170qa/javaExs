@@ -1,0 +1,19 @@
+package com.qa.selenium1;
+
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SelEx1 {
+
+	WebDriver driver;
+
+	@Before
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Documents\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+	}
+
+}

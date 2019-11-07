@@ -1,0 +1,49 @@
+package com.qa.selenium1;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SelEx1 {
+
+	WebDriver driver;
+
+	@Before
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Documents\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+	}
+	@Ignore
+	@Test
+	public void testOne() throws InterruptedException {
+		System.out.println("test 001");
+		driver.get("https://www.google.com");
+		Thread.sleep(2000);
+	}
+
+
+	@Test
+	public void testTwo() throws InterruptedException {
+		System.out.println("test 002");
+		driver.get("http://thedemosite.co.uk/");
+		WebElement addUser = driver.findElement(By.xpath("/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/p/small/a[3]"));
+		addUser.submit();
+		WebElement usr = driver.findElement(By.xpath("/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[1]/td[2]/p/input"));
+		usr.sendKeys("Chicken");
+		WebElement pwd = driver.findElement(By.xpath("/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[2]/td[2]/p/input"));
+		pwd.sendKeys("Nuggets");
+	}
+
+	@After
+	public void teardown() {
+
+	}
+
+}
